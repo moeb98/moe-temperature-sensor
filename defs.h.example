@@ -1,0 +1,20 @@
+#define WIFI_SSID "your_wifi_ssid"
+#define WIFI_PASSWORD "your_wifi_password"
+
+// Raspberri Pi Mosquitto MQTT Broker - replace by your IP address
+#define MQTT_HOST IPAddress(192, 168, x, x)
+// For a cloud MQTT broker, type the domain name
+//#define MQTT_HOST "example.com"
+#define MQTT_PORT 1883
+
+// Temperature MQTT Topics
+#define MQTT_PUB_TEMP "esp/dht/temperature"
+#define MQTT_PUB_HUM "esp/dht/humidity"
+
+// Digital pin connected to the DHT sensor
+#define DHTPIN 14  
+
+// Uncomment whatever DHT sensor type you're using
+//#define DHTTYPE DHT11   // DHT 11
+#define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
+//#define DHTTYPE DHT21   // DHT 21 (AM2301)   
