@@ -1,11 +1,15 @@
 #define WIFI_SSID "your_wifi_ssid"
 #define WIFI_PASSWORD "your_wifi_password"
 
-// Raspberri Pi Mosquitto MQTT Broker - replace by your IP address
+// MQTT Broker e.g. Mosquitto - replace by your IP address
 #define MQTT_HOST IPAddress(192, 168, x, x)
 // For a cloud MQTT broker, type the domain name
 //#define MQTT_HOST "example.com"
 #define MQTT_PORT 1883
+
+// MQTT Broker e.g. Mosquitto - replace by your credentials
+#define MQTT_USER "your_mqtt_user"
+#define MQTT_PW "your_mqtt_password"
 
 // Temperature MQTT Topics
 #define MQTT_PUB_TEMP "esp/dht/temperature"

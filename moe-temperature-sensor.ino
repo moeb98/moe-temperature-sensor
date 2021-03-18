@@ -19,8 +19,10 @@ WiFiEventHandler wifiConnectHandler;
 WiFiEventHandler wifiDisconnectHandler;
 Ticker wifiReconnectTimer;
 
-unsigned long previousMillis = 0;   // Stores last time temperature was published
-const long interval = 60000;        // Interval at which to publish sensor readings
+// Stores last time temperature was published
+unsigned long previousMillis = 0;   
+// Interval at which to publish sensor readings
+const long interval = 60000;
 
 void connectToWifi() {
   Serial.println("Connecting to Wi-Fi...");
@@ -34,7 +36,8 @@ void onWifiConnect(const WiFiEventStationModeGotIP& event) {
 
 void onWifiDisconnect(const WiFiEventStationModeDisconnected& event) {
   Serial.println("Disconnected from Wi-Fi.");
-  mqttReconnectTimer.detach(); // ensure we don't reconnect to MQTT while reconnecting to Wi-Fi
+  // ensure we don't reconnect to MQTT while reconnecting to Wi-Fi  
+  mqttReconnectTimer.detach(); 
   wifiReconnectTimer.once(2, connectToWifi);
 }
 
@@ -93,7 +96,7 @@ void setup() {
   mqttClient.onPublish(onMqttPublish);
   mqttClient.setServer(MQTT_HOST, MQTT_PORT);
   // If your broker requires authentication (username and password), set them below
-  //mqttClient.setCredentials("REPlACE_WITH_YOUR_USER", "REPLACE_WITH_YOUR_PASSWORD");
+  mqttClient.setCredentials(MQTT_USER, MQTT_PW);
   
   connectToWifi();
 }
